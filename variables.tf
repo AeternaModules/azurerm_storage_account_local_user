@@ -26,15 +26,15 @@ EOT
     name                 = string
     storage_account_id   = string
     home_directory       = optional(string)
-    ssh_key_enabled      = optional(bool, false)
-    ssh_password_enabled = optional(bool, false)
+    ssh_key_enabled      = optional(bool) # Default: false
+    ssh_password_enabled = optional(bool) # Default: false
     permission_scope = optional(object({
       permissions = object({
-        create = optional(bool, false)
-        delete = optional(bool, false)
-        list   = optional(bool, false)
-        read   = optional(bool, false)
-        write  = optional(bool, false)
+        create = optional(bool) # Default: false
+        delete = optional(bool) # Default: false
+        list   = optional(bool) # Default: false
+        read   = optional(bool) # Default: false
+        write  = optional(bool) # Default: false
       })
       resource_name = string
       service       = string
