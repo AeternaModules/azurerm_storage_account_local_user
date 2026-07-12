@@ -1,3 +1,7 @@
+output "storage_account_local_users_id" {
+  description = "Map of id values across all storage_account_local_users, keyed the same as var.storage_account_local_users"
+  value       = { for k, v in azurerm_storage_account_local_user.storage_account_local_users : k => v.id }
+}
 output "storage_account_local_users_home_directory" {
   description = "Map of home_directory values across all storage_account_local_users, keyed the same as var.storage_account_local_users"
   value       = { for k, v in azurerm_storage_account_local_user.storage_account_local_users : k => v.home_directory }
