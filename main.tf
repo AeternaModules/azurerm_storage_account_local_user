@@ -8,7 +8,7 @@ resource "azurerm_storage_account_local_user" "storage_account_local_users" {
   ssh_password_enabled = each.value.ssh_password_enabled
 
   dynamic "permission_scope" {
-    for_each = each.value.permission_scope != null ? [each.value.permission_scope] : []
+    for_each = each.value.permission_scope != null ? each.value.permission_scope : []
     content {
       permissions {
         create = permission_scope.value.permissions.create
@@ -23,7 +23,7 @@ resource "azurerm_storage_account_local_user" "storage_account_local_users" {
   }
 
   dynamic "ssh_authorized_key" {
-    for_each = each.value.ssh_authorized_key != null ? [each.value.ssh_authorized_key] : []
+    for_each = each.value.ssh_authorized_key != null ? each.value.ssh_authorized_key : []
     content {
       description = ssh_authorized_key.value.description
       key         = ssh_authorized_key.value.key

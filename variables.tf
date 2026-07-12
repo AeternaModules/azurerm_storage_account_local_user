@@ -28,7 +28,7 @@ EOT
     home_directory       = optional(string)
     ssh_key_enabled      = optional(bool) # Default: false
     ssh_password_enabled = optional(bool) # Default: false
-    permission_scope = optional(object({
+    permission_scope = optional(list(object({
       permissions = object({
         create = optional(bool) # Default: false
         delete = optional(bool) # Default: false
@@ -38,11 +38,11 @@ EOT
       })
       resource_name = string
       service       = string
-    }))
-    ssh_authorized_key = optional(object({
+    })))
+    ssh_authorized_key = optional(list(object({
       description = optional(string)
       key         = string
-    }))
+    })))
   }))
 }
 
